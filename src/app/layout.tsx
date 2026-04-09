@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import { FloatingWhatsApp } from "@/components/site/floating-whatsapp";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import "./globals.css";
@@ -15,9 +16,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Mandla Money",
+  title: "Mandla Money — Your phone number is your wallet",
   description:
-    "Modern mobile money experiences for emerging economies across SMS, WhatsApp and web.",
+    "Send, receive, and store money instantly via WhatsApp, SMS or USSD. No bank account. No smartphone required.",
 };
 
 export default function RootLayout({
@@ -34,6 +35,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

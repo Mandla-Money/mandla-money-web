@@ -4,57 +4,59 @@ import { basePath } from "@/lib/base-path";
 
 const footerSections = [
   {
-    title: "Platform",
+    title: "Personal",
     links: [
-      { href: "/products", label: "Products" },
-      { href: "/products", label: "Solutions" },
-      { href: "/contact", label: "Security" },
+      { href: "/personal", label: "Send Money" },
+      { href: "/personal", label: "Receive Money" },
+      { href: "/personal", label: "Airtime & Electricity" },
+      { href: "/personal", label: "Cross-Border Transfers" },
+    ],
+  },
+  {
+    title: "Business",
+    links: [
+      { href: "/business", label: "Bulk Payouts" },
+      { href: "/business", label: "NGO Disbursements" },
+      { href: "/business", label: "Payroll" },
+      { href: "/business", label: "API Documentation" },
     ],
   },
   {
     title: "Company",
     links: [
-      { href: "/news", label: "In the news" },
-      { href: "/contact", label: "Contact us" },
-      { href: "/contact", label: "Support" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { href: "#", label: "Privacy Policy" },
-      { href: "#", label: "Terms of Service" },
-      { href: "#", label: "Usage Policy" },
+      { href: "/about", label: "About" },
+      { href: "/#recognition", label: "Recognition" },
+      { href: "mailto:info@mandla.money", label: "Contact" },
     ],
   },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-20 overflow-hidden bg-primary text-white">
-      <div className="absolute left-0 top-0 h-48 w-48 rounded-full bg-accent/10 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-white/5 blur-3xl" />
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-5">
+    <footer className="bg-primary text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-5">
         <div className="md:col-span-2">
           <div className="inline-flex items-center gap-3">
             <Image
               src={`${basePath}/logo.png`}
-              alt="Mandla Money logo"
+              alt="Mandla Money"
               width={36}
               height={36}
               className="h-9 w-9 rounded-md object-contain"
             />
-            <p className="font-display text-xl font-bold text-white">Mandla Money</p>
+            <p className="font-display text-xl font-bold text-white">
+              Mandla Money
+            </p>
           </div>
-          <p className="mt-4 max-w-sm text-sm leading-6 text-white/70">
-            Power to the people&apos;s finances through digital assets over SMS,
-            USSD, and WhatsApp for unbanked and underbanked communities.
+          <p className="mt-4 max-w-xs text-sm leading-6 text-white/60">
+            Your phone number is your wallet. Send, receive, and store money
+            instantly via WhatsApp, SMS or USSD.
           </p>
         </div>
 
         {footerSections.map((section) => (
           <div key={section.title}>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
               {section.title}
             </p>
             <div className="mt-4 space-y-3">
@@ -62,7 +64,7 @@ export function SiteFooter() {
                 <Link
                   key={`${section.title}-${link.label}`}
                   href={link.href}
-                  className="block text-sm text-white/65 transition-colors hover:text-white"
+                  className="block text-sm text-white/60 transition-colors hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -73,9 +75,21 @@ export function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-7xl border-t border-white/10 px-6 py-6">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/55">
-          © 2026 Mandla Money (PTY) LTD. All rights reserved.
+        <p className="text-xs leading-5 text-white/40">
+          Mandla Money (Pty) Ltd Registration Number 2019/470624/07 is an
+          authorised Financial Services Provider (FSP 55523).
         </p>
+        <div className="mt-3 flex flex-wrap gap-4 text-xs text-white/40">
+          <Link href="#" className="transition hover:text-white/60">
+            Privacy Policy
+          </Link>
+          <Link href="#" className="transition hover:text-white/60">
+            Terms of Use
+          </Link>
+          <Link href="#" className="transition hover:text-white/60">
+            Legal Disclaimer
+          </Link>
+        </div>
       </div>
     </footer>
   );
