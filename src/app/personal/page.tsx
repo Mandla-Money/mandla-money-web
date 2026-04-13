@@ -7,6 +7,7 @@ import {
   Globe,
   MessageCircle,
   Phone,
+  PiggyBank,
   Send,
   Wallet,
   Zap,
@@ -65,14 +66,14 @@ export default function PersonalPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-20">
+      <section className="bg-primary pt-12 pb-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold text-white md:text-6xl">
-              Send money the way you already message
+              Send money like you send a message
             </h1>
             <p className="mt-6 text-lg text-white/60">
-              WhatsApp or USSD. Any phone. Any network.
+              WhatsApp, SMS, USSD. Any phone. Any network.
             </p>
             <button
               onClick={handleCTA}
@@ -103,7 +104,7 @@ export default function PersonalPage() {
                 />
               </div>
               <p className="mt-4 text-sm text-primary/50">
-                Or dial *xxx# on any phone
+                Or WhatsApp +27 60 041 0476 on any phone
               </p>
             </div>
 
@@ -127,49 +128,76 @@ export default function PersonalPage() {
         </div>
       </section>
 
-      {/* Feature Cards */}
+      {/* Why people choose Mandla Money */}
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-3">
-            {featureCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <div
-                  key={card.title}
-                  className="rounded-2xl border border-primary/5 p-8"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                    <Icon className="h-5 w-5 text-accent" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-primary">
-                    {card.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-primary/60">
-                    {card.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20">
-        <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-center text-3xl font-bold text-primary md:text-4xl">
-            Frequently asked questions
+            Why people choose Mandla Money
           </h2>
-          <div className="mt-12 space-y-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.question}
-                className="rounded-xl border border-primary/5 bg-white p-6"
-              >
-                <h3 className="font-semibold text-primary">{faq.question}</h3>
-                <p className="mt-2 text-sm text-primary/60">{faq.answer}</p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-primary/5 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <Send className="h-6 w-6 text-accent" />
               </div>
-            ))}
+              <h3 className="mt-5 text-lg font-semibold text-primary">
+                Send & receive
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Your phone number is your wallet
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-primary/50">
+                Transfer money instantly via WhatsApp, SMS, or USSD - no bank
+                account or app required.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-primary/5 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <Zap className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-primary">
+                Pay bills
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Airtime, electricity, and more
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-primary/50">
+                Pay for everyday essentials directly from your wallet.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-primary/5 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <Globe className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-primary">
+                Cross-border
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                As easy as sending a message
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-primary/50">
+                Move money across borders as easily as sending a message - at a
+                fraction of the cost.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-primary/5 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <PiggyBank className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-primary">
+                Save
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Your money, stable
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-primary/50">
+                Hold value in digital currencies backed by USD or Rand - and
+                stop worrying about what your money is worth tomorrow.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -11,5 +11,5 @@ export const designSystem = {
   roundness: "8px",
 } as const;
 
-export const WHATSAPP_NUMBER = "+27600000000";
+export const WHATSAPP_NUMBER = "+27600410476";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace(/\+/g, "")}`;

@@ -94,7 +94,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 bg-primary">
+      <header className="relative z-50 bg-primary">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link href="/" className="inline-flex shrink-0 items-center">
             <Image
@@ -207,7 +207,7 @@ export function SiteHeader() {
                     </div>
                     <div className="flex flex-col justify-center gap-3 border-l border-primary/10 bg-primary/[0.02] p-5">
                       <Link
-                        href="/business"
+                        href="/contact"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-accent"
                         onClick={() => setActiveDropdown(null)}
                       >
@@ -233,6 +233,20 @@ export function SiteHeader() {
               className="rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
             >
               About
+            </Link>
+
+            <Link
+              href="/faq"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
+            >
+              FAQ
+            </Link>
+
+            <Link
+              href="/contact"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
+            >
+              Contact
             </Link>
           </nav>
 
@@ -301,6 +315,22 @@ export function SiteHeader() {
                 onClick={() => setMobileOpen(false)}
               >
                 About
+              </Link>
+
+              <Link
+                href="/faq"
+                className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
+                onClick={() => setMobileOpen(false)}
+              >
+                FAQ
+              </Link>
+
+              <Link
+                href="/contact"
+                className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
+                onClick={() => setMobileOpen(false)}
+              >
+                Contact
               </Link>
             </div>
 

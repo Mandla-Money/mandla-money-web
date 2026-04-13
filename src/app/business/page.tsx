@@ -1,20 +1,33 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowRight,
   CheckCircle2,
   Code2,
+  DollarSign,
   Globe,
+  Link2,
+  Phone,
   Shield,
   Upload,
   Users,
   Wallet,
   Zap,
 } from "lucide-react";
+import { basePath } from "@/lib/base-path";
 import { WHATSAPP_URL } from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
+
+const partners = [
+  { name: "Ripple", logo: "/visuals/ripple.png", url: "https://ripple.com" },
+  { name: "Algorand", logo: "/visuals/algorand.png", url: "https://algorand.co" },
+  { name: "Tenity", logo: "/visuals/tenity.png", url: "https://tenity.com" },
+  { name: "CSIR", logo: "/visuals/csir.jpg", url: "https://www.csir.co.za" },
+  { name: "RLabs", logo: "/visuals/rlabs.png", url: "https://rlabs.org" },
+];
 
 const audiences = [
   { icon: Users, label: "NGOs", description: "Grants and aid distribution at scale" },
@@ -23,15 +36,31 @@ const audiences = [
 ];
 
 const payoutSteps = [
-  { number: "01", title: "Upload recipient list", description: "CSV or API integration" },
-  { number: "02", title: "Fund account", description: "Bank transfer or card payment" },
-  { number: "03", title: "Disburse in one click", description: "Instant delivery to recipients" },
-  { number: "04", title: "Track transactions", description: "Real-time reporting dashboard" },
+  {
+    number: "01",
+    title: "Upload recipients",
+    description: "Add phone numbers via CSV or connect your system via API.",
+  },
+  {
+    number: "02",
+    title: "Fund your Mandla Money account",
+    description: "Fund your account via EFT or stablecoin deposit.",
+  },
+  {
+    number: "03",
+    title: "Disburse instantly",
+    description: "Send payouts to any phone number in one click - across networks and borders.",
+  },
+  {
+    number: "04",
+    title: "Track and report",
+    description: "Monitor transactions in real time, with delivery confirmations and downloadable PDF reports for each payout.",
+  },
 ];
 
 const businessValues = [
   { icon: Zap, label: "Lower cost", description: "Near-zero transaction fees" },
-  { icon: Shield, label: "Fully compliant", description: "FSP #55523, FSCA supervised" },
+  { icon: Shield, label: "Fully compliant", description: "FSP55523, FSCA supervised" },
   { icon: Users, label: "No bank accounts required", description: "Phone number wallets" },
   { icon: Globe, label: "Multi-country", description: "Live across multiple countries" },
 ];
@@ -42,17 +71,17 @@ export default function BusinessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-28 pb-20">
+      <section className="bg-primary pt-12 pb-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold text-white md:text-6xl">
-              Disburse funds to any phone number, anywhere
+              Disburse funds to any phone number, anywhere, Instantly.
             </h1>
             <p className="mt-6 text-lg text-white/60">
               Bulk payouts, payroll, and social transfers
             </p>
             <Link
-              href="mailto:sales@mandla.money"
+              href="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-primary transition hover:brightness-105"
             >
               Talk to Sales
@@ -88,6 +117,84 @@ export default function BusinessPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Why businesses choose Mandla Money */}
+      <section className="bg-primary py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="text-center text-3xl font-bold text-white md:text-4xl">
+            Why businesses choose Mandla Money
+          </h2>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <Zap className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">
+                Speed & Reach
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Send to thousands of recipients in seconds
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/50">
+                No banking infrastructure required. If they have a phone number,
+                you can pay them - instantly, across networks and borders.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <DollarSign className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">
+                Cost
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Near-zero fees at any scale
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/50">
+                Traditional payroll and remittance services charge per
+                transaction and per corridor. Mandla Money costs a fraction of a
+                cent - whether you&apos;re paying 10 people or 10,000.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <Shield className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">
+                Compliance
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Built-in regulatory coverage
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/50">
+                Mandla Money is a licensed Financial Services Provider (FSP
+                55523). Disbursements are handled within a compliant framework,
+                including KYC, reporting, and audit trails.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+                <Users className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">
+                Inclusion
+              </h3>
+              <p className="mt-1 text-sm font-medium text-accent">
+                Reach the unbanked by default
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/50">
+                No bank account. No smartphone. No data required. Recipients get
+                paid to their phone number and access funds via WhatsApp, SMS,
+                or USSD.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -131,13 +238,29 @@ export default function BusinessPage() {
                 Simple REST APIs for disbursements, balance checks, and
                 transaction orchestration.
               </p>
-              <Link
-                href="mailto:api@mandla.money"
-                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90"
-              >
-                View API Documentation
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              <p className="mt-4 text-primary/60 font-bold flex items-center gap-2">
+                <span className="flex items-center self-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-primary/60 align-middle"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    style={{ verticalAlign: "middle" }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 21.25c4.14 0 7.5-3.36 7.5-7.5a7.502 7.502 0 10-15 0c0 4.14 3.36 7.5 7.5 7.5zm0-13v5l2.5 2.5"
+                    />
+                  </svg>
+                </span>
+                <span className="flex items-center self-center h-5 mt-1">Coming soon</span>
+              </p>
+        
+         
+         
             </div>
 
             <div className="overflow-hidden rounded-xl border border-primary/10 bg-[#0A0A0A]">
@@ -169,48 +292,36 @@ export default function BusinessPage() {
         </div>
       </section>
 
-      {/* Business Value */}
-      <section className="bg-white py-20">
+      {/* Trusted Partners */}
+      <section className="overflow-hidden bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {businessValues.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.label}
-                  className="rounded-2xl border border-primary/5 p-6"
-                >
-                  <Icon className="h-6 w-6 text-accent" />
-                  <h3 className="mt-3 font-semibold text-primary">
-                    {item.label}
-                  </h3>
-                  <p className="mt-1 text-sm text-primary/50">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          <p className="text-center text-xs font-semibold uppercase tracking-wider text-accent">
+            Trusted by organisations on the ground
+          </p>
+          <h2 className="mt-4 text-center text-3xl font-bold text-primary md:text-4xl">
+            Our partners
+          </h2>
         </div>
-      </section>
 
-      {/* Live Partnership */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="rounded-2xl border border-primary/10 bg-white p-10">
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Trusted by organisations on the ground
-            </p>
-            <h3 className="mt-4 text-2xl font-bold text-primary md:text-3xl">
-              RLabs
-            </h3>
-            <p className="mt-1 text-sm text-primary/50">
-              Global community organisation operating across 25+ countries
-            </p>
-            <p className="mt-4 text-primary/70">
-              Mandla Money is actively supporting RLabs with fund
-              disbursements. This is live infrastructure, not a pilot.
-            </p>
+        <div className="relative mt-12 overflow-hidden">
+          <div className="flex animate-[scroll_20s_linear_infinite] gap-12">
+            {[...partners, ...partners, ...partners, ...partners].map((p, i) => (
+              <a
+                key={`${p.name}-${i}`}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex shrink-0 items-center justify-center transition-opacity hover:opacity-70"
+              >
+                <Image
+                  src={`${basePath}${p.logo}`}
+                  alt={p.name}
+                  width={160}
+                  height={64}
+                  className="h-14 w-auto object-contain"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -222,7 +333,7 @@ export default function BusinessPage() {
             Ready to move money at scale?
           </h2>
           <Link
-            href="mailto:sales@mandla.money"
+            href="/contact"
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary transition hover:brightness-105"
           >
             Talk to Sales

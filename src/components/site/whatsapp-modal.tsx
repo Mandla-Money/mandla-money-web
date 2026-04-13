@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import { WHATSAPP_NUMBER, WHATSAPP_URL } from "@/lib/design-system";
+import { WHATSAPP_URL } from "@/lib/design-system";
 
 export function WhatsAppModal({
   open,
@@ -47,11 +47,12 @@ export function WhatsAppModal({
         </button>
 
         <h2 className="text-2xl font-semibold text-primary">
-          Start using Mandla Money
+        Scan to start chatting
         </h2>
         <p className="mt-2 text-primary/60">
-          Scan with your phone to open your wallet
+          Send and receive money in seconds - no app required.
         </p>
+        
 
         <div className="mx-auto mt-6 flex h-[220px] w-[220px] items-center justify-center rounded-xl border border-primary/10 bg-white p-2">
           {qrUrl ? (
@@ -75,8 +76,6 @@ export function WhatsAppModal({
         >
           Open WhatsApp
         </a>
-
-        <p className="mt-3 text-sm text-primary/50">{WHATSAPP_NUMBER}</p>
       </div>
     </div>
   );

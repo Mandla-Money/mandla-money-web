@@ -16,13 +16,15 @@ import {
 import { basePath } from "@/lib/base-path";
 import { WHATSAPP_URL } from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
+import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { faqItems } from "@/lib/faq-data";
 
 const partners = [
-  { name: "Ripple", logo: "/visuals/ripple.png" },
-  { name: "Algorand", logo: "/visuals/algorand.png" },
-  { name: "Tenity", logo: "/visuals/tenity.png" },
-  { name: "CSIR", logo: "/visuals/csir.jpg" },
-  { name: "RLabs", logo: "/visuals/rlabs.png" },
+  { name: "Ripple", logo: "/visuals/ripple.png", url: "https://ripple.com" },
+  { name: "Algorand", logo: "/visuals/algorand.png", url: "https://algorand.co" },
+  { name: "Tenity", logo: "/visuals/tenity.png", url: "https://tenity.com" },
+  { name: "CSIR", logo: "/visuals/csir.jpg", url: "https://www.csir.co.za" },
+  { name: "RLabs", logo: "/visuals/rlabs.png", url: "https://rlabs.org" },
 ];
 
 const howItWorksSteps = [
@@ -101,6 +103,7 @@ const recognitionCards = [
   },
 ];
 
+
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -128,7 +131,7 @@ export default function Home() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-primary/30" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pb-20 pt-32">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-[1440px] items-center px-6 pb-20 pt-16">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-6xl lg:text-7xl">
@@ -163,7 +166,7 @@ export default function Home() {
                   <Shield className="h-3.5 w-3.5 text-accent" />
                   Licensed & regulated
                 </span>
-                <span>FSP #55523</span>
+                <span>FSP55523</span>
                 <span>Live across 11 countries</span>
               </div>
             </div>
@@ -203,7 +206,7 @@ export default function Home() {
 
       {/* 3.2 Social Proof Section */}
       <section className="border-b border-primary/5 bg-white py-12">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[1440px] px-6">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="text-center">
               <p className="text-4xl font-bold text-primary">1,000+</p>
@@ -214,21 +217,28 @@ export default function Home() {
               <p className="mt-1 text-sm text-primary/50">Countries</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-primary">FSP #55523</p>
+              <p className="text-4xl font-bold text-primary">FSP55523</p>
               <p className="mt-1 text-sm text-primary/50">Licensed</p>
             </div>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
             {partners.map((partner) => (
-              <Image
+              <a
                 key={partner.name}
-                src={`${basePath}${partner.logo}`}
-                alt={partner.name}
-                width={120}
-                height={40}
-                className="h-10 w-auto object-contain"
-              />
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity hover:opacity-70"
+              >
+                <Image
+                  src={`${basePath}${partner.logo}`}
+                  alt={partner.name}
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+              </a>
             ))}
           </div>
         </div>
@@ -236,7 +246,7 @@ export default function Home() {
 
       {/* 3.3 How It Works */}
       <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[1440px] px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-primary md:text-5xl">
               How it works
@@ -285,7 +295,7 @@ export default function Home() {
 
       {/* 3.4 Core Value Section */}
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[1440px] px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-primary md:text-5xl">
               Why Mandla Money
@@ -321,7 +331,7 @@ export default function Home() {
 
       {/* 3.5 Use Case Split Section */}
       <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[1440px] px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {/* For individuals - dark */}
             <div className="rounded-2xl bg-primary p-10 text-white">
@@ -384,7 +394,7 @@ export default function Home() {
 
       {/* 3.6 Regulatory Section */}
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[1440px] px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold text-primary md:text-5xl">
               Regulated, licensed, and built to last
@@ -393,13 +403,7 @@ export default function Home() {
               <div className="rounded-xl border border-primary/5 bg-off-white px-8 py-6 text-center">
                 <Shield className="mx-auto h-8 w-8 text-accent" />
                 <p className="mt-3 text-lg font-semibold text-primary">
-                  FSP No. 55523
-                </p>
-              </div>
-              <div className="rounded-xl border border-primary/5 bg-off-white px-8 py-6 text-center">
-                <Shield className="mx-auto h-8 w-8 text-accent" />
-                <p className="mt-3 text-lg font-semibold text-primary">
-                  FSCA supervised
+                  FSP55523
                 </p>
               </div>
               <div className="rounded-xl border border-primary/5 bg-off-white px-8 py-6 text-center">
@@ -413,9 +417,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="bg-primary py-20">
+        <div className="mx-auto max-w-[1440px] px-6">
+          <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:items-start">
+            <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+              Frequently Asked Questions
+            </h2>
+            <div>
+              <FaqAccordion items={faqItems.slice(0, 5)} />
+              <div className="mt-8 border-t border-white/10 pt-8">
+                <Link
+                  href="/faq"
+                  className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-primary transition hover:brightness-105"
+                >
+                  View all FAQs
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3.7 Recognition Section */}
       <section id="recognition" className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[1440px] px-6">
           <h2 className="text-center text-3xl font-bold text-primary md:text-5xl">
             Recognition
           </h2>

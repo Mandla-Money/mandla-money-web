@@ -26,7 +26,7 @@ const footerSections = [
     links: [
       { href: "/about", label: "About" },
       { href: "/#recognition", label: "Recognition" },
-      { href: "mailto:info@mandla.money", label: "Contact" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ];
