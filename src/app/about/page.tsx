@@ -28,15 +28,18 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero with logo */}
-      <section className="bg-primary pt-12 pb-20">
+      <section className="bg-primary pt-20 pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              About
+            </p>
             <Image
               src={`${basePath}/logo.png`}
               alt="Mandla Money"
               width={380}
               height={120}
-              className="mx-auto h-16 w-auto object-contain"
+              className="mx-auto mt-4 h-16 w-auto object-contain"
               priority
             />
             <p className="mt-6 text-lg text-white/60">
@@ -51,7 +54,7 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
               <Phone className="h-6 w-6 text-accent" />
             </div>
             <div>
@@ -73,7 +76,7 @@ export default function AboutPage() {
       <section className="bg-primary py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
               <AlertTriangle className="h-6 w-6 text-accent" />
             </div>
             <div>
@@ -118,7 +121,7 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
               <Sparkles className="h-6 w-6 text-accent" />
             </div>
             <div>
@@ -167,15 +170,15 @@ export default function AboutPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
               <Zap className="h-6 w-6 text-accent" />
             </div>
             <h2 className="text-3xl font-bold text-primary">How it works</h2>
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-primary/5 p-8 text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <MessageCircle className="h-6 w-6 text-accent" />
               </div>
               <p className="mt-2 text-xs font-semibold text-accent">Step 01</p>
@@ -187,8 +190,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-primary/5 p-8 text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Wallet className="h-6 w-6 text-accent" />
               </div>
               <p className="mt-2 text-xs font-semibold text-accent">Step 02</p>
@@ -200,8 +203,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-primary/5 p-8 text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <ArrowRight className="h-6 w-6 text-accent" />
               </div>
               <p className="mt-2 text-xs font-semibold text-accent">Step 03</p>
@@ -220,7 +223,7 @@ export default function AboutPage() {
       <section className="bg-primary py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
               <Heart className="h-6 w-6 text-accent" />
             </div>
             <h2 className="text-3xl font-bold text-white">What we believe</h2>
@@ -250,7 +253,7 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
               <Shield className="h-6 w-6 text-accent" />
             </div>
             <h2 className="text-3xl font-bold text-primary">
@@ -259,7 +262,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-primary/5 bg-white p-8 text-center">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
               <Shield className="mx-auto h-8 w-8 text-accent" />
               <h3 className="mt-4 font-semibold text-primary">Regulated</h3>
               <p className="mt-2 text-sm text-primary/50">
@@ -267,14 +270,14 @@ export default function AboutPage() {
                 FIC Compliant<br />
               </p>
             </div>
-            <div className="rounded-2xl border border-primary/5 bg-white p-8 text-center">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
               <Globe className="mx-auto h-8 w-8 text-accent" />
               <h3 className="mt-4 font-semibold text-primary">Global</h3>
               <p className="mt-2 text-sm text-primary/50">
               Global reach, local trust-built for everyone, everywhere.
               </p>
             </div>
-            <div className="rounded-2xl border border-primary/5 bg-white p-8 text-center">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
               <Users className="mx-auto h-8 w-8 text-accent" />
               <h3 className="mt-4 font-semibold text-primary">Inclusive</h3>
               <p className="mt-2 text-sm text-primary/50">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Mail, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -30,10 +30,13 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-12 pb-20">
+      <section className="bg-primary pt-20 pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold text-white md:text-6xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Contact
+            </p>
+            <h1 className="mt-3 text-4xl font-bold text-white md:text-6xl">
               Get in touch
             </h1>
             <p className="mt-4 text-lg text-white/60">
@@ -178,9 +181,9 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Info Sidebar */}
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-primary/5 bg-white p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
+            <div className="space-y-4">
+              <div className="card-hover rounded-2xl border border-primary/10 bg-white p-6 shadow-soft">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 ring-1 ring-accent/20">
                   <Mail className="h-5 w-5 text-accent" />
                 </div>
                 <h3 className="mt-4 font-semibold text-primary">Email</h3>
@@ -192,8 +195,8 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="rounded-2xl border border-primary/5 bg-white p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
+              <div className="card-hover rounded-2xl border border-primary/10 bg-white p-6 shadow-soft">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 ring-1 ring-accent/20">
                   <MessageCircle className="h-5 w-5 text-accent" />
                 </div>
                 <h3 className="mt-4 font-semibold text-primary">WhatsApp</h3>
@@ -207,10 +210,12 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="rounded-2xl bg-primary p-6">
-                <p className="text-sm leading-relaxed text-white/50">
-                  Mandla Money (Pty) Ltd Registration Number 2019/470624/07 is
-                  an authorised Financial Services Provider (FSP 55523).
+              <div className="rounded-2xl border border-white/10 bg-primary p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                  Regulated
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">
+                  Mandla Money (Pty) Ltd · Registration 2019/470624/07. Authorised Financial Services Provider (FSP&nbsp;55523).
                 </p>
               </div>
             </div>

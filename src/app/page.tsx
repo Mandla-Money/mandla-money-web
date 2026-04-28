@@ -131,9 +131,13 @@ export default function Home() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-primary/30" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-[1440px] items-center px-6 pb-20 pt-16">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pb-20 pt-16">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="max-w-xl">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/70 backdrop-blur">
+                <Shield className="h-3.5 w-3.5 text-accent" />
+                Authorised FSP 55523 · Live in 11 countries
+              </div>
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-6xl lg:text-7xl">
                 Your phone number is your wallet.
               </h1>
@@ -161,13 +165,19 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/50">
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/40">
                 <span className="inline-flex items-center gap-1.5">
-                  <Shield className="h-3.5 w-3.5 text-accent" />
-                  Licensed & regulated
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Instant settlement
                 </span>
-                <span>FSP55523</span>
-                <span>Live across 11 countries</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  Works on any phone
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+                  Near-zero fees
+                </span>
               </div>
             </div>
 
@@ -205,31 +215,46 @@ export default function Home() {
       </section>
 
       {/* 3.2 Social Proof Section */}
-      <section className="border-b border-primary/5 bg-white py-12">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-primary">1,000+</p>
-              <p className="mt-1 text-sm text-primary/50">Users</p>
+      <section className="border-b border-primary/5 bg-white py-14">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid divide-y divide-primary/10 md:grid-cols-3 md:divide-x md:divide-y-0">
+            <div className="px-4 py-6 text-center md:py-2">
+              <p className="font-display text-4xl font-bold tracking-tight text-primary">
+                1,000+
+              </p>
+              <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-primary/40">
+                Users onboarded
+              </p>
             </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-primary">11</p>
-              <p className="mt-1 text-sm text-primary/50">Countries</p>
+            <div className="px-4 py-6 text-center md:py-2">
+              <p className="font-display text-4xl font-bold tracking-tight text-primary">
+                11
+              </p>
+              <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-primary/40">
+                Countries live
+              </p>
             </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-primary">FSP55523</p>
-              <p className="mt-1 text-sm text-primary/50">Licensed</p>
+            <div className="px-4 py-6 text-center md:py-2">
+              <p className="font-display text-4xl font-bold tracking-tight text-primary">
+                FSP55523
+              </p>
+              <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-primary/40">
+                FSCA authorised
+              </p>
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
+          <p className="mt-12 text-center text-xs font-semibold uppercase tracking-[0.18em] text-primary/40">
+            Backed by
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
             {partners.map((partner) => (
               <a
                 key={partner.name}
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-opacity hover:opacity-70"
+                className="grayscale opacity-60 transition hover:opacity-100 hover:grayscale-0"
               >
                 <Image
                   src={`${basePath}${partner.logo}`}
@@ -246,7 +271,7 @@ export default function Home() {
 
       {/* 3.3 How It Works */}
       <section className="py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-primary md:text-5xl">
               How it works
@@ -256,29 +281,37 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
-            {howItWorksSteps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={step.number}
-                  className="relative rounded-2xl border border-primary/5 bg-white p-8 text-center"
-                >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
-                    <Icon className="h-6 w-6 text-accent" />
+          <div className="relative mt-16">
+            {/* Connecting dotted line (desktop) */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-[16%] right-[16%] top-[56px] hidden border-t border-dashed border-accent/30 md:block"
+            />
+
+            <div className="grid gap-8 md:grid-cols-3">
+              {howItWorksSteps.map((step) => {
+                const Icon = step.icon;
+                return (
+                  <div
+                    key={step.number}
+                    className="card-hover relative rounded-2xl border border-primary/5 bg-white p-8 text-center shadow-soft"
+                  >
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
+                      <Icon className="h-6 w-6 text-accent" />
+                    </div>
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                      Step {step.number}
+                    </p>
+                    <h3 className="mt-2 text-xl font-semibold text-primary">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-primary/60">
+                      {step.description}
+                    </p>
                   </div>
-                  <p className="mt-2 text-xs font-semibold text-accent">
-                    Step {step.number}
-                  </p>
-                  <h3 className="mt-3 text-xl font-semibold text-primary">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-primary/60">
-                    {step.description}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
 
           <div className="mt-12 text-center">
@@ -295,7 +328,7 @@ export default function Home() {
 
       {/* 3.4 Core Value Section */}
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-primary md:text-5xl">
               Why Mandla Money
@@ -305,15 +338,15 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
             {coreValues.map((value) => {
               const Icon = value.icon;
               return (
                 <div
                   key={value.title}
-                  className="rounded-2xl border border-primary/5 p-8"
+                  className="card-hover rounded-2xl border border-primary/10 bg-white p-8 shadow-soft"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 ring-1 ring-accent/20">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
                   <h3 className="mt-5 text-lg font-semibold text-primary">
@@ -331,11 +364,18 @@ export default function Home() {
 
       {/* 3.5 Use Case Split Section */}
       <section className="py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {/* For individuals - dark */}
-            <div className="rounded-2xl bg-primary p-10 text-white">
-              <h3 className="text-2xl font-bold md:text-3xl">
+            <div className="card-hover relative overflow-hidden rounded-2xl border border-white/5 bg-primary p-10 text-white shadow-soft-lg">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent/15 blur-3xl"
+              />
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Personal
+              </p>
+              <h3 className="mt-2 text-2xl font-bold md:text-3xl">
                 For individuals
               </h3>
               <p className="mt-3 text-white/60">
@@ -362,8 +402,11 @@ export default function Home() {
             </div>
 
             {/* For organisations - light */}
-            <div className="rounded-2xl border border-primary/10 bg-white p-10">
-              <h3 className="text-2xl font-bold text-primary md:text-3xl">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-10 shadow-soft">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Business
+              </p>
+              <h3 className="mt-2 text-2xl font-bold text-primary md:text-3xl">
                 For organisations
               </h3>
               <p className="mt-3 text-primary/60">
@@ -394,22 +437,48 @@ export default function Home() {
 
       {/* 3.6 Regulatory Section */}
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-primary md:text-5xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Trust & compliance
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-primary md:text-5xl">
               Regulated, licensed, and built to last
             </h2>
-            <div className="mt-10 flex flex-wrap justify-center gap-8">
-              <div className="rounded-xl border border-primary/5 bg-off-white px-8 py-6 text-center">
-                <Shield className="mx-auto h-8 w-8 text-accent" />
-                <p className="mt-3 text-lg font-semibold text-primary">
-                  FSP55523
+            <p className="mt-4 text-primary/60">
+              Operating within a fully authorised framework across the markets we serve.
+            </p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              <div className="card-hover rounded-xl border border-primary/10 bg-off-white px-8 py-6 text-left">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 ring-1 ring-accent/20">
+                    <Shield className="h-5 w-5 text-accent" />
+                  </span>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary/40">
+                      Authorised FSP
+                    </p>
+                    <p className="text-lg font-semibold text-primary">FSP 55523</p>
+                  </div>
+                </div>
+                <p className="mt-3 text-sm text-primary/55">
+                  FSCA supervised Financial Services Provider.
                 </p>
               </div>
-              <div className="rounded-xl border border-primary/5 bg-off-white px-8 py-6 text-center">
-                <Shield className="mx-auto h-8 w-8 text-accent" />
-                <p className="mt-3 text-lg font-semibold text-primary">
-                  FIC compliant
+              <div className="card-hover rounded-xl border border-primary/10 bg-off-white px-8 py-6 text-left">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 ring-1 ring-accent/20">
+                    <Shield className="h-5 w-5 text-accent" />
+                  </span>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary/40">
+                      Regulatory
+                    </p>
+                    <p className="text-lg font-semibold text-primary">FIC compliant</p>
+                  </div>
+                </div>
+                <p className="mt-3 text-sm text-primary/55">
+                  KYC, AML and reporting built into every transaction.
                 </p>
               </div>
             </div>
@@ -419,7 +488,7 @@ export default function Home() {
 
       {/* FAQ Section */}
       <section className="bg-primary py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:items-start">
             <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
               Frequently Asked Questions
@@ -442,7 +511,7 @@ export default function Home() {
 
       {/* 3.7 Recognition Section */}
       <section id="recognition" className="py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-center text-3xl font-bold text-primary md:text-5xl">
             Recognition
           </h2>
@@ -451,9 +520,13 @@ export default function Home() {
             {recognitionCards.map((card) => (
               <div
                 key={card.org}
-                className="rounded-2xl border border-primary/5 bg-white p-6"
+                className="card-hover group relative overflow-hidden rounded-2xl border border-primary/10 bg-white p-6 shadow-soft"
               >
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                />
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                   {card.org}
                 </p>
                 <h3 className="mt-3 text-lg font-semibold text-primary">
@@ -469,21 +542,29 @@ export default function Home() {
       </section>
 
       {/* 3.8 Final CTA Section */}
-      <section className="bg-primary py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+      <section className="relative overflow-hidden bg-primary py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-bold text-white md:text-5xl">
             Start using Mandla Money today
           </h2>
           <p className="mt-4 text-lg text-white/60">
-            Join thousands of people sending money instantly
+            Join thousands of people sending money instantly.
           </p>
           <button
             onClick={handleCTA}
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary transition hover:brightness-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
           >
+            <MessageCircle className="h-4 w-4" />
             Start on WhatsApp
             <ArrowRight className="h-4 w-4" />
           </button>
+          <p className="mt-4 text-xs text-white/40">
+            No app. No bank account. Works on any phone.
+          </p>
         </div>
       </section>
 

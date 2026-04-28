@@ -6,14 +6,11 @@ import {
   CheckCircle2,
   Globe,
   MessageCircle,
-  Phone,
   PiggyBank,
   Send,
-  Wallet,
   Zap,
 } from "lucide-react";
-import { basePath } from "@/lib/base-path";
-import { WHATSAPP_URL, WHATSAPP_NUMBER } from "@/lib/design-system";
+import { WHATSAPP_URL } from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
 
 const features = [
@@ -22,34 +19,6 @@ const features = [
   "Pay airtime and electricity",
   "Send across borders",
   "Check your balance",
-];
-
-const featureCards = [
-  {
-    icon: Send,
-    title: "Send and receive",
-    description:
-      "Transfer money to any phone number instantly via WhatsApp, SMS or USSD.",
-  },
-  {
-    icon: Zap,
-    title: "Pay bills",
-    description:
-      "Buy airtime and pay electricity directly from your wallet.",
-  },
-  {
-    icon: Globe,
-    title: "Cross-border",
-    description:
-      "Send money across countries as easily as sending a message.",
-  },
-];
-
-const faqs = [
-  { question: "Do I need a smartphone?", answer: "No. Mandla works via SMS and USSD on any phone." },
-  { question: "Do I need a bank account?", answer: "No. Your phone number is your wallet." },
-  { question: "What are the fees?", answer: "Near-zero fees on all transactions." },
-  { question: "Is it safe?", answer: "Fully regulated. FSP #55523. FSCA supervised. FIC compliant." },
 ];
 
 export default function PersonalPage() {
@@ -66,10 +35,13 @@ export default function PersonalPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-12 pb-20">
+      <section className="bg-primary pt-20 pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold text-white md:text-6xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Personal
+            </p>
+            <h1 className="mt-3 text-4xl font-bold text-white md:text-6xl">
               Send money like you send a message
             </h1>
             <p className="mt-6 text-lg text-white/60">
@@ -77,8 +49,9 @@ export default function PersonalPage() {
             </p>
             <button
               onClick={handleCTA}
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-primary transition hover:brightness-105"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
             >
+              <MessageCircle className="h-4 w-4" />
               Start on WhatsApp
               <ArrowRight className="h-4 w-4" />
             </button>
@@ -94,7 +67,7 @@ export default function PersonalPage() {
           </h2>
           <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="flex flex-col items-center">
-              <div className="rounded-2xl border border-primary/10 bg-white p-4">
+              <div className="rounded-2xl border border-primary/10 bg-white p-4 shadow-soft">
                 <img
                   src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(WHATSAPP_URL)}`}
                   alt="QR code to open Mandla Money on WhatsApp"
@@ -103,7 +76,8 @@ export default function PersonalPage() {
                   className="h-[220px] w-[220px]"
                 />
               </div>
-              <p className="mt-4 text-sm text-primary/50">
+              <p className="mt-4 inline-flex items-center gap-2 text-sm text-primary/50">
+                <MessageCircle className="h-4 w-4 text-accent" />
                 Or WhatsApp +27 60 041 0476 on any phone
               </p>
             </div>
@@ -136,8 +110,8 @@ export default function PersonalPage() {
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-primary/5 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Send className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-primary">
@@ -152,8 +126,8 @@ export default function PersonalPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-primary/5 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Zap className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-primary">
@@ -167,8 +141,8 @@ export default function PersonalPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-primary/5 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Globe className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-primary">
@@ -183,8 +157,8 @@ export default function PersonalPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-primary/5 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <PiggyBank className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-primary">
@@ -203,8 +177,12 @@ export default function PersonalPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-primary py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+      <section className="relative overflow-hidden bg-primary py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
             Ready to get started?
           </h2>
@@ -213,8 +191,9 @@ export default function PersonalPage() {
           </p>
           <button
             onClick={handleCTA}
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary transition hover:brightness-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
           >
+            <MessageCircle className="h-4 w-4" />
             Start on WhatsApp
             <ArrowRight className="h-4 w-4" />
           </button>

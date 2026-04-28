@@ -5,20 +5,15 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowRight,
-  CheckCircle2,
   Code2,
   DollarSign,
   Globe,
-  Link2,
-  Phone,
   Shield,
-  Upload,
   Users,
   Wallet,
   Zap,
 } from "lucide-react";
 import { basePath } from "@/lib/base-path";
-import { WHATSAPP_URL } from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
 
 const partners = [
@@ -71,18 +66,21 @@ export default function BusinessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-12 pb-20">
+      <section className="bg-primary pt-20 pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold text-white md:text-6xl">
-              Disburse funds to any phone number, anywhere, Instantly.
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Business
+            </p>
+            <h1 className="mt-3 text-4xl font-bold text-white md:text-6xl">
+              Disburse funds to any phone number, anywhere, instantly.
             </h1>
             <p className="mt-6 text-lg text-white/60">
-              Bulk payouts, payroll, and social transfers
+              Bulk payouts, payroll, and social transfers — at near-zero cost.
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-primary transition hover:brightness-105"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
             >
               Talk to Sales
               <ArrowRight className="h-4 w-4" />
@@ -97,15 +95,15 @@ export default function BusinessPage() {
           <h2 className="text-center text-3xl font-bold text-primary md:text-4xl">
             Who it&apos;s for
           </h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {audiences.map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-primary/5 bg-white p-8 text-center"
+                  className="card-hover rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft"
                 >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                     <Icon className="h-6 w-6 text-accent" />
                   </div>
                   <h3 className="mt-4 text-lg font-semibold text-primary">
@@ -130,7 +128,7 @@ export default function BusinessPage() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-white/10 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Zap className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">
@@ -146,7 +144,7 @@ export default function BusinessPage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <DollarSign className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">
@@ -163,7 +161,7 @@ export default function BusinessPage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Shield className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">
@@ -180,7 +178,7 @@ export default function BusinessPage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <Users className="h-6 w-6 text-accent" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">
@@ -209,9 +207,9 @@ export default function BusinessPage() {
             {payoutSteps.map((step) => (
               <div
                 key={step.number}
-                className="rounded-2xl border border-primary/5 p-6"
+                className="card-hover rounded-2xl border border-primary/10 bg-off-white p-6 shadow-soft"
               >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 ring-1 ring-accent/20 text-sm font-bold text-accent">
                   {step.number}
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-primary">
@@ -231,43 +229,30 @@ export default function BusinessPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary md:text-4xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Developer
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-primary md:text-4xl">
                 Integrate in hours, not months
               </h2>
               <p className="mt-4 text-primary/60">
                 Simple REST APIs for disbursements, balance checks, and
                 transaction orchestration.
               </p>
-              <p className="mt-4 text-primary/60 font-bold flex items-center gap-2">
-                <span className="flex items-center self-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-primary/60 align-middle"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    style={{ verticalAlign: "middle" }}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 21.25c4.14 0 7.5-3.36 7.5-7.5a7.502 7.502 0 10-15 0c0 4.14 3.36 7.5 7.5 7.5zm0-13v5l2.5 2.5"
-                    />
-                  </svg>
-                </span>
-                <span className="flex items-center self-center h-5 mt-1">Coming soon</span>
-              </p>
-        
-         
-         
+              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Coming soon
+              </div>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-primary/10 bg-[#0A0A0A]">
+            <div className="overflow-hidden rounded-xl border border-primary/10 bg-[#0A0A0A] shadow-soft-lg">
               <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3">
                 <div className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
                 <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
                 <div className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
+                <span className="ml-3 text-[11px] font-medium text-white/40">
+                  POST /v1/disbursements/bulk
+                </span>
               </div>
               <pre className="overflow-x-auto p-5 text-xs leading-6 text-slate-300">
                 <code>{`POST /v1/disbursements/bulk
@@ -311,7 +296,7 @@ export default function BusinessPage() {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex shrink-0 items-center justify-center transition-opacity hover:opacity-70"
+                className="flex shrink-0 items-center justify-center grayscale opacity-60 transition hover:opacity-100 hover:grayscale-0"
               >
                 <Image
                   src={`${basePath}${p.logo}`}
@@ -327,14 +312,21 @@ export default function BusinessPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-primary py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+      <section className="relative overflow-hidden bg-primary py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
             Ready to move money at scale?
           </h2>
+          <p className="mt-4 text-white/60">
+            Get started with a tailored disbursement plan for your organisation.
+          </p>
           <Link
             href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary transition hover:brightness-105"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
           >
             Talk to Sales
             <ArrowRight className="h-4 w-4" />

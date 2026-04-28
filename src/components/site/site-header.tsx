@@ -10,6 +10,7 @@ import {
   CreditCard,
   Globe,
   Menu,
+  MessageCircle,
   Phone,
   Send,
   Users,
@@ -94,7 +95,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="relative z-50 bg-primary">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/80">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link href="/" className="inline-flex shrink-0 items-center">
             <Image
@@ -230,21 +231,21 @@ export function SiteHeader() {
 
             <Link
               href="/about"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
+              className="nav-link rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
             >
               About
             </Link>
 
             <Link
               href="/faq"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
+              className="nav-link rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
             >
               FAQ
             </Link>
 
             <Link
               href="/contact"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
+              className="nav-link rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white"
             >
               Contact
             </Link>
@@ -253,8 +254,9 @@ export function SiteHeader() {
           <div className="flex items-center gap-3">
             <button
               onClick={handleCTA}
-              className="hidden rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-primary transition hover:brightness-105 md:inline-flex"
+              className="hidden items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-primary shadow-[0_4px_14px_-4px_rgba(201,168,76,0.45)] transition hover:brightness-105 md:inline-flex"
             >
+              <MessageCircle className="h-4 w-4" />
               Start on WhatsApp
             </button>
 
