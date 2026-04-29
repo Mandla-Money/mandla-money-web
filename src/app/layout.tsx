@@ -19,6 +19,19 @@ export const metadata: Metadata = {
   title: "Mandla Money — Your phone number is your wallet",
   description:
     "Send, receive, and store money instantly via WhatsApp, SMS or USSD. No bank account. No smartphone required.",
+  openGraph: {
+    title: "Mandla Money — Your phone number is your wallet",
+    description:
+      "Send, receive, and store money instantly via WhatsApp, SMS or USSD. No bank account. No smartphone required.",
+    images: [{ url: "/logo.png", width: 765, height: 255, alt: "Mandla Money" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mandla Money — Your phone number is your wallet",
+    description:
+      "Send, receive, and store money instantly via WhatsApp, SMS or USSD. No bank account. No smartphone required.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
