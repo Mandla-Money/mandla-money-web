@@ -183,30 +183,14 @@ export default function Home() {
 
             <div className="hidden lg:flex lg:justify-center">
               <div className="relative">
-                <div className="h-[500px] w-[260px] rounded-[40px] border-2 border-white/10 bg-white/5 p-3 backdrop-blur">
-                  <div className="flex h-full flex-col rounded-[32px] bg-primary/80 p-5">
-                    <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
-                        <MessageCircle className="h-5 w-5 text-accent" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-white">Mandla Money</p>
-                        <p className="text-xs text-white/50">WhatsApp</p>
-                      </div>
-                    </div>
-                    <div className="mt-4 flex-1 space-y-3">
-                      <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-2.5">
-                        <p className="text-sm text-white/80">Welcome to Mandla Money! Your phone number is now your wallet.</p>
-                      </div>
-                      <div className="ml-auto max-w-[70%] rounded-2xl rounded-tr-sm bg-accent/20 px-4 py-2.5">
-                        <p className="text-sm text-accent">Send R100 to +27 81 234 5678</p>
-                      </div>
-                      <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-2.5">
-                        <p className="text-sm text-white/80">R100 sent successfully. Balance: R450</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Image
+                  src={`${basePath}/mobile_view.png`}
+                  alt="Mandla Money mobile wallet view"
+                  width={564}
+                  height={1024}
+                  className="h-[560px] w-auto object-contain drop-shadow-[0_22px_60px_rgba(0,0,0,0.45)]"
+                  priority
+                />
                 <div className="pulse-glow absolute -right-8 top-20 h-24 w-24 rounded-full bg-accent/20 blur-3xl" />
               </div>
             </div>

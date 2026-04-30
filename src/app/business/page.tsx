@@ -76,7 +76,7 @@ export default function BusinessPage() {
               Disburse funds to any phone number, anywhere, instantly.
             </h1>
             <p className="mt-6 text-lg text-white/60">
-              Bulk payouts, payroll, and social transfers — at near-zero cost.
+              Bulk payouts, payroll, and social transfers - at near-zero cost.
             </p>
             <Link
               href="/contact"
