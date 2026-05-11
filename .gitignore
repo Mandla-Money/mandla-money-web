@@ -23,6 +23,15 @@
 # misc
 .DS_Store
 *.pem
+public/visuals/*.pdf
+public/visuals/*.docx
+public/visuals/~$*
+public/visuals/hero-fintech.svg
+public/visuals/mandla-hero-general-2.png
+public/visuals/mandla_money.mp4
+public/visuals/mandla_money_vid.mp4
+public/visuals/news-media.svg
+public/visuals/products-network.svg
 
 # debug
 npm-debug.log*

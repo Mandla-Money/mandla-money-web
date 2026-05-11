@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold: #C9A84C;
+  --black: #0A0A0A;
+  --off-white: #FAF8F4;
+  --background: #FAF8F4;
+  --foreground: #0A0A0A;
+  --surface: #ffffff;
+  --surface-strong: #F0EDE6;
+  --primary: #0A0A0A;
+  --accent: #C9A84C;
+  --accent-foreground: #0A0A0A;
+  --radius-base: 8px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-off-white: var(--off-white);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-manrope);
+  --radius-md: var(--radius-base);
+  --radius-lg: calc(var(--radius-base) + 4px);
+  --radius-xl: calc(var(--radius-base) + 8px);
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  min-height: 100vh;
+  background: var(--off-white);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-manrope), sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, white);
+  color: var(--primary);
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Utilities: premium fintech polish --- */
+
+/* Soft, directional shadow for cards on light surfaces */
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(10, 10, 10, 0.04),
+    0 8px 24px -12px rgba(10, 10, 10, 0.08);
+}
+
+.shadow-soft-lg {
+  box-shadow:
+    0 2px 4px rgba(10, 10, 10, 0.04),
+    0 20px 48px -20px rgba(10, 10, 10, 0.14);
+}
+
+/* Card hover: gentle lift + warmer border */
+.card-hover {
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--accent) 30%, transparent);
+  box-shadow:
+    0 1px 2px rgba(10, 10, 10, 0.04),
+    0 16px 40px -16px rgba(201, 168, 76, 0.25);
+}
+
+/* Subtle gold underline that slides in on hover (used in header links) */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Consistent focus ring using the brand accent */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 70%, white);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Balance headlines for nicer wrap on large screens */
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+/* Cross-browser smooth transitions on interactive elements */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
