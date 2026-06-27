@@ -44,7 +44,7 @@ export default function AboutPage() {
             />
             <p className="mt-6 text-lg text-white/60">
               Financial infrastructure designed for how money actually moves.
-              Regulated, Licensed, and Built for the Lastmile.
+              Regulated, licensed, and built for the lastmile.
             </p>
           </div>
         </div>

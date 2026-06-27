@@ -120,6 +120,14 @@ export default function Home() {
 
   return (
     <>
+      {/* Preload the hero poster so the hero paints instantly (React hoists this to <head>). */}
+      <link
+        rel="preload"
+        as="image"
+        href={`${basePath}/visuals/hero-poster.jpg`}
+        fetchPriority="high"
+      />
+
       {/* 3.1 Hero Section */}
       <section className="relative min-h-screen overflow-hidden bg-primary">
         <video
@@ -129,8 +137,10 @@ export default function Home() {
           loop
           playsInline
           preload="auto"
+          poster={`${basePath}/visuals/hero-poster.jpg`}
         >
-          <source src={`${basePath}/visuals/video_hero_2.mp4`} type="video/mp4" />
+          <source src={`${basePath}/visuals/hero.webm`} type="video/webm" />
+          <source src={`${basePath}/visuals/hero.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-primary/30" />
 

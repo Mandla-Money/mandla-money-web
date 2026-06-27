@@ -22,7 +22,7 @@ export function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Start on WhatsApp"
-        className="fixed bottom-6 right-6 z-[60] inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-primary shadow-[0_10px_30px_-8px_rgba(201,168,76,0.55)] transition-transform hover:scale-105"
+        className="fixed bottom-20 right-6 z-[60] inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-primary shadow-[0_10px_30px_-8px_rgba(201,168,76,0.55)] transition-transform hover:scale-105"
       >
         <MessageCircle className="h-4 w-4" />
         Start on WhatsApp
