@@ -12,7 +12,8 @@ import {
   Menu,
   MessageCircle,
   Phone,
-  Send,
+  PiggyBank,
+  TrendingUp,
   Users,
   Wallet,
   X,
@@ -36,16 +37,16 @@ const personalLinks = [
     href: "/personal#scan-to-start",
   },
   {
+    icon: PiggyBank,
+    label: "Savings in USD",
+    description: "Hold value in stable digital dollars",
+    href: "/personal#savings-in-usd",
+  },
+  {
     icon: Wallet,
     label: "What You Can Do",
     description: "Core personal wallet actions",
     href: "/personal#what-you-can-do",
-  },
-  {
-    icon: Send,
-    label: "Why People Choose Mandla Money",
-    description: "Benefits for everyday users",
-    href: "/personal#why-people-choose",
   },
 ];
 
@@ -57,16 +58,16 @@ const businessLinks = [
     href: "/business#who-its-for",
   },
   {
-    icon: Zap,
-    label: "Why businesses choose Mandla Money",
-    description: "Speed, cost, compliance, and inclusion",
-    href: "/business#why-businesses-choose",
-  },
-  {
     icon: CreditCard,
     label: "Bulk payout flow",
     description: "How disbursements work end-to-end",
     href: "/business#bulk-payout-flow",
+  },
+  {
+    icon: TrendingUp,
+    label: "OTC Markets",
+    description: "Large-value digital asset conversions",
+    href: "/business#otc-markets",
   },
   {
     icon: Code2,

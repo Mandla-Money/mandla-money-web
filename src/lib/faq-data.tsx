@@ -35,7 +35,7 @@ export const faqItems: FaqItem[] = [
     question: "Is my money safe?",
     answer: (
       <>
-        <p>Yes. Mandla Money is a fully licensed financial services provider (FSP 55523) and follows strict regulatory and security standards.</p>
+        <p>Yes. Mandla Money is a fully licensed financial services provider (FSP 55523), Crypto Asset Service Provider (CASP), and FIC-registered entity (76060). We follow strict regulatory and security standards.</p>
         <p className="mt-2">Funds are held in secure systems, and stablecoins are backed by underlying reserves, ensuring transparency and reliability.</p>
       </>
     ),

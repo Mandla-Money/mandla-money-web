@@ -159,7 +159,7 @@ export default function PersonalPage() {
               </p>
             </div>
 
-            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+            <div id="savings-in-usd" className="card-hover scroll-mt-24 rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
                 <PiggyBank className="h-6 w-6 text-accent" />
               </div>
@@ -167,7 +167,7 @@ export default function PersonalPage() {
                 Save
               </h3>
               <p className="mt-1 text-sm font-medium text-accent">
-                Your money, stable
+                Savings in USD
               </p>
               <p className="mt-3 text-sm leading-relaxed text-primary/50">
                 Hold value in digital currencies backed by USD or Rand - and

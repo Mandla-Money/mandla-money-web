@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -210,12 +211,38 @@ export default function ContactPage() {
                 </a>
               </div> */}
 
-              <div className="rounded-2xl border border-white/10 bg-primary p-6">
+              <div className="rounded-2xl border border-primary/10 bg-off-white p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-                Mandla Money Notice
+                  Mandla Money Notice
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">
-                Mandla Money (Pty) Ltd (2019/470624/07) is an authorised Financial Services Provider (FSP 55523).
+                <p className="mt-3 text-sm leading-relaxed text-primary/70">
+                  Mandla Money (Pty) Ltd (2019/470624/07) is an authorised
+                  Financial Services Provider (FSP 55523), Crypto Asset Service
+                  Provider (CASP), and FIC-registered entity (76060). Digital
+                  assets are not legal tender and carry risk. Blockchain
+                  transactions may be irreversible. Never share your PIN or
+                  verification codes. By using this service, you agree to our{" "}
+                  <Link
+                    href="/legal/terms-of-use"
+                    className="font-medium text-primary underline decoration-accent/50 underline-offset-2 hover:text-accent"
+                  >
+                    Terms of Use
+                  </Link>
+                  ,{" "}
+                  <Link
+                    href="/legal/privacy-policy"
+                    className="font-medium text-primary underline decoration-accent/50 underline-offset-2 hover:text-accent"
+                  >
+                    Privacy Policy
+                  </Link>
+                  , and{" "}
+                  <Link
+                    href="/legal/risk-disclosure"
+                    className="font-medium text-primary underline decoration-accent/50 underline-offset-2 hover:text-accent"
+                  >
+                    Risk Disclosure
+                  </Link>
+                  .
                 </p>
               </div>
             </div>

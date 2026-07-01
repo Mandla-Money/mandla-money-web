@@ -16,17 +16,10 @@ import {
 import { basePath } from "@/lib/base-path";
 import { WHATSAPP_URL } from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
+import { HeroBackground } from "@/components/site/hero-background";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
 import { faqItems } from "@/lib/faq-data";
 import { newsArticles } from "@/lib/news-data";
-
-const partners = [
-  { name: "Ripple", logo: "/visuals/ripple.png", url: "https://ripple.com" },
-  { name: "Algorand", logo: "/visuals/algorand.png", url: "https://algorand.co" },
-  { name: "Tenity", logo: "/visuals/tenity.png", url: "https://tenity.com" },
-  { name: "CSIR", logo: "/visuals/csir.jpg", url: "https://www.csir.co.za" },
-  { name: "RLabs", logo: "/visuals/rlabs.png", url: "https://rlabs.org" },
-];
 
 const howItWorksSteps = [
   {
@@ -86,24 +79,24 @@ const orgFeatures = [
 
 const recognitionCards = [
   {
+    org: "Ripple Foundation",
+    title: "Grant",
+    description: "$50,000",
+  },
+  {
     org: "Schmidt Futures",
     title: "Reimagine Award",
-    description: "Innovation in financial systems",
+    description: "$25,000",
+  },
+  {
+    org: "XRPL Commons",
+    title: "Residency",
+    description: "Aquarium incubator programme",
   },
   {
     org: "Ripple / XRPL",
     title: "Hackathon Winner",
     description: "Creating Real World Impact Hackathon",
-  },
-  {
-    org: "Tenity",
-    title: "Accelerator Participant",
-    description: "$50,000 grant",
-  },
-  {
-    org: "Algorand",
-    title: "Ecosystem Grant",
-    description: "Grant recipient",
   },
 ];
 
@@ -130,18 +123,7 @@ export default function Home() {
 
       {/* 3.1 Hero Section */}
       <section className="relative min-h-screen overflow-hidden bg-primary">
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={`${basePath}/visuals/hero-poster.jpg`}
-        >
-          <source src={`${basePath}/visuals/hero.webm`} type="video/webm" />
-          <source src={`${basePath}/visuals/hero.mp4`} type="video/mp4" />
-        </video>
+        <HeroBackground />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-primary/30" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pb-20 pt-16">
@@ -383,52 +365,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3.6 Regulatory Section */}
-      <section className="bg-white py-20">
+      {/* Licensed & Regulated */}
+      <section id="licensed-regulated" className="scroll-mt-24 bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-              Trust & compliance
+              Licensed & Regulated
             </p>
             <h2 className="mt-3 text-3xl font-bold text-primary md:text-5xl">
-              Regulated, licensed, and built to last
+              Regulated, Licensed, and Built for the Lastmile.
             </h2>
-            <p className="mt-4 text-primary/60">
-              Operating within a fully authorised framework across the markets we serve.
-            </p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              <div className="card-hover rounded-xl border border-primary/10 bg-off-white px-8 py-6 text-left">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 ring-1 ring-accent/20">
-                    <Shield className="h-5 w-5 text-accent" />
-                  </span>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary/40">
-                      Authorised FSP
-                    </p>
-                    <p className="text-lg font-semibold text-primary">FSP 55523</p>
-                  </div>
-                </div>
-                <p className="mt-3 text-sm text-primary/55">
-                  FSCA supervised Financial Services Provider.
-                </p>
-              </div>
-              <div className="card-hover rounded-xl border border-primary/10 bg-off-white px-8 py-6 text-left">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 ring-1 ring-accent/20">
-                    <Shield className="h-5 w-5 text-accent" />
-                  </span>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary/40">
-                      Regulatory
-                    </p>
-                    <p className="text-lg font-semibold text-primary">FIC compliant</p>
-                  </div>
-                </div>
-                <p className="mt-3 text-sm text-primary/55">
-                  KYC, AML and reporting built into every transaction.
-                </p>
-              </div>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <Shield className="h-8 w-8 text-accent" />
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                FSCA Licensed
+              </p>
+              <h3 className="mt-2 text-lg font-semibold text-primary">
+                Crypto Asset Service Provider (CASP)
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-primary/60">
+                Financial Services Provider — FSP No. 55523. Mandla Money is licensed
+                by the Financial Sector Conduct Authority (FSCA).
+              </p>
+            </div>
+
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <Shield className="h-8 w-8 text-accent" />
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                FIC Registered
+              </p>
+              <h3 className="mt-2 text-lg font-semibold text-primary">
+                Accountable Institution
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-primary/60">
+                Registration No. 76060. Registered with the Financial Intelligence
+                Centre (FIC) as an Accountable Institution.
+              </p>
+            </div>
+
+            <div className="card-hover rounded-2xl border border-primary/10 bg-off-white p-8 shadow-soft">
+              <Shield className="h-8 w-8 text-accent" />
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                Risk-Based AML/CTF Programme
+              </p>
+              <h3 className="mt-2 text-lg font-semibold text-primary">
+                Compliance built in
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-primary/60">
+                Customer due diligence, sanctions screening, and ongoing transaction
+                monitoring in accordance with South African regulatory requirements.
+              </p>
             </div>
           </div>
         </div>

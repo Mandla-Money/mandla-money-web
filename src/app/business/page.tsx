@@ -9,20 +9,14 @@ import {
   DollarSign,
   Globe,
   Shield,
+  TrendingUp,
   Users,
   Wallet,
   Zap,
 } from "lucide-react";
 import { basePath } from "@/lib/base-path";
+import { partners } from "@/lib/partners";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
-
-const partners = [
-  { name: "Ripple", logo: "/visuals/ripple.png", url: "https://ripple.com" },
-  { name: "Algorand", logo: "/visuals/algorand.png", url: "https://algorand.co" },
-  { name: "Tenity", logo: "/visuals/tenity.png", url: "https://tenity.com" },
-  { name: "CSIR", logo: "/visuals/csir.jpg", url: "https://www.csir.co.za" },
-  { name: "RLabs", logo: "/visuals/rlabs.png", url: "https://rlabs.org" },
-];
 
 const audiences = [
   { icon: Users, label: "NGOs", description: "Grants and aid distribution at scale" },
@@ -224,6 +218,46 @@ export default function BusinessPage() {
         </div>
       </section>
 
+      {/* OTC Markets */}
+      <section id="otc-markets" className="scroll-mt-24 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                OTC Markets
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-primary md:text-4xl">
+                Large-value digital asset conversions
+              </h2>
+              <p className="mt-4 text-primary/60">
+                Mandla Money supports over-the-counter markets for organisations
+                that need to convert or move significant volumes of digital assets
+                with tailored pricing and settlement support.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-primary/90"
+              >
+                Talk to Sales
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="card-hover rounded-2xl border border-primary/10 bg-white p-8 shadow-soft">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 ring-1 ring-accent/20">
+                <TrendingUp className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-primary">
+                Built for treasury and institutional flows
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-primary/60">
+                Work with our team for compliant OTC execution, liquidity access,
+                and settlement aligned to your operational requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* API Section */}
       <section id="api" className="scroll-mt-24 py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -288,15 +322,15 @@ export default function BusinessPage() {
           </h2>
         </div>
 
-        <div className="relative mt-12 overflow-hidden">
-          <div className="flex animate-[scroll_20s_linear_infinite] gap-12">
+        <div className="relative mt-12 overflow-hidden bg-white">
+          <div className="flex animate-[scroll_20s_linear_infinite] gap-12 px-6">
             {[...partners, ...partners, ...partners, ...partners].map((p, i) => (
               <a
                 key={`${p.name}-${i}`}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex shrink-0 items-center justify-center grayscale opacity-60 transition hover:opacity-100 hover:grayscale-0"
+                className="flex shrink-0 items-center justify-center rounded-xl bg-white px-6 py-4"
               >
                 <Image
                   src={`${basePath}${p.logo}`}

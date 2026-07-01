@@ -1,38 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { basePath } from "@/lib/base-path";
 import { WHATSAPP_URL } from "@/lib/design-system";
 import { WhatsAppModal } from "./whatsapp-modal";
 
 export function FloatingWhatsApp() {
-  const [isMobile, setIsMobile] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
-  if (isMobile) {
-    return (
+  return (
+    <>
+      {/* Mobile: compact FAB — opens WhatsApp directly (no on-screen QR) */}
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Start on WhatsApp"
-        className="fixed bottom-20 right-6 z-[60] inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-primary shadow-[0_10px_30px_-8px_rgba(201,168,76,0.55)] transition-transform hover:scale-105"
+        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-accent text-primary shadow-[0_8px_24px_-6px_rgba(201,168,76,0.55)] transition-transform hover:scale-105 active:scale-95 md:hidden"
       >
-        <MessageCircle className="h-4 w-4" />
-        Start on WhatsApp
+        <MessageCircle className="h-5 w-5" />
       </a>
-    );
-  }
 
-  return (
-    <>
-      <div className="fixed bottom-6 right-6 z-[60]">
+      {/* Desktop: always-visible QR widget */}
+      <div className="fixed bottom-6 right-6 z-[60] hidden md:block">
         <button
           onClick={() => setModalOpen(true)}
           aria-label="Scan QR to open Mandla Money on WhatsApp"

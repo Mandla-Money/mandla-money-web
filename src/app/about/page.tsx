@@ -266,8 +266,8 @@ export default function AboutPage() {
               <Shield className="mx-auto h-8 w-8 text-accent" />
               <h3 className="mt-4 font-semibold text-primary">Regulated</h3>
               <p className="mt-2 text-sm text-primary/50">
-                FSP55523<br />
-                FIC Compliant<br />
+                FSP 55523 · CASP<br />
+                FIC 76060 · AML/CTF compliant
               </p>
             </div>
             <div className="card-hover flex h-full flex-col rounded-2xl border border-primary/10 bg-white p-8 text-center shadow-soft">
@@ -288,9 +288,10 @@ export default function AboutPage() {
 
           <p className="mt-10 text-lg leading-relaxed text-primary/60">
             Mandla Money (Pty) Ltd (2019/470624/07) is an authorised Financial
-            Services Provider (FSP 55523). We operate across multiple countries
-            and are built with compliance, security, and accessibility at our
-            core.
+            Services Provider (FSP 55523) and Crypto Asset Service Provider
+            (CASP), registered with the FIC (76060). We operate across multiple
+            countries and are built with compliance, security, and accessibility
+            at our core.
           </p>
         </div>
       </section>
