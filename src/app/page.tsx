@@ -14,7 +14,11 @@ import {
   Zap,
 } from "lucide-react";
 import { basePath } from "@/lib/base-path";
-import { WHATSAPP_URL } from "@/lib/design-system";
+import {
+  BUSINESS_APP_URL,
+  CUSTOMER_APP_URL,
+  WHATSAPP_URL,
+} from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
 import { HeroBackground } from "@/components/site/hero-background";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
@@ -148,13 +152,24 @@ export default function Home() {
                   Start on WhatsApp
                   <ArrowRight className="h-4 w-4" />
                 </button>
-                <Link
-                  href="/business"
+                <a
+                  href={CUSTOMER_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/10"
                 >
-                  Bulk Payouts & Disbursements
+                  Open customer app
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
+                <a
+                  href={BUSINESS_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg px-6 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/10"
+                >
+                  Open business app
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/40">
@@ -329,6 +344,15 @@ export default function Home() {
                 Start on WhatsApp
                 <ArrowRight className="h-4 w-4" />
               </button>
+              <a
+                href={CUSTOMER_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:brightness-110"
+              >
+                Or open the customer app
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
 
             {/* For organisations - light */}
@@ -353,13 +377,24 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/business"
-                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90"
-              >
-                Explore Business Solutions
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={BUSINESS_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90"
+                >
+                  Open business app
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link
+                  href="/business"
+                  className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-primary ring-1 ring-primary/15 transition hover:bg-primary/5"
+                >
+                  Explore Business Solutions
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -373,7 +408,7 @@ export default function Home() {
               Licensed & Regulated
             </p>
             <h2 className="mt-3 text-3xl font-bold text-primary md:text-5xl">
-              Regulated, Licensed, and Built for the Lastmile.
+              Regulated, licensed, and built for the lastmile.
             </h2>
           </div>
 
@@ -552,6 +587,26 @@ export default function Home() {
             Start on WhatsApp
             <ArrowRight className="h-4 w-4" />
           </button>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={CUSTOMER_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:brightness-110"
+            >
+              Customer app
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={BUSINESS_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:brightness-110"
+            >
+              Business app
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
           <p className="mt-4 text-xs text-white/40">
             No app. No bank account. Works on any phone.
           </p>

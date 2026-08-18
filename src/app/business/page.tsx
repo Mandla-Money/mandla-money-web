@@ -15,6 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 import { basePath } from "@/lib/base-path";
+import { BUSINESS_APP_URL } from "@/lib/design-system";
 import { partners } from "@/lib/partners";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
 
@@ -358,13 +359,24 @@ export default function BusinessPage() {
           <p className="mt-4 text-white/60">
             Get started with a tailored disbursement plan for your organisation.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
-          >
-            Talk to Sales
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={BUSINESS_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-primary shadow-[0_10px_30px_-10px_rgba(201,168,76,0.6)] transition hover:brightness-105"
+            >
+              Open business app
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/10"
+            >
+              Talk to Sales
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

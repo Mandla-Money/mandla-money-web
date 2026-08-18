@@ -202,12 +202,12 @@ export default function ContactPage() {
                 </div>
                 <h3 className="mt-4 font-semibold text-primary">Phone number</h3>
                 <a
-                  href="https://wa.me/27600410476"
+                  href="https://wa.me/27609305221"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-1 block text-sm text-accent hover:underline"
                 >
-                  +27 60 041 0476
+                  +27 60 930 5221
                 </a>
               </div> */}
 

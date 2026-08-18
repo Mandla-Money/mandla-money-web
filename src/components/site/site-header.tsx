@@ -8,7 +8,6 @@ import {
   ChevronDown,
   Code2,
   CreditCard,
-  Globe,
   Menu,
   MessageCircle,
   Phone,
@@ -17,10 +16,13 @@ import {
   Users,
   Wallet,
   X,
-  Zap,
 } from "lucide-react";
 import { basePath } from "@/lib/base-path";
-import { WHATSAPP_URL } from "@/lib/design-system";
+import {
+  BUSINESS_APP_URL,
+  CUSTOMER_APP_URL,
+  WHATSAPP_URL,
+} from "@/lib/design-system";
 import { WhatsAppModal } from "./whatsapp-modal";
 
 const personalLinks = [
@@ -32,9 +34,10 @@ const personalLinks = [
   },
   {
     icon: Phone,
-    label: "Scan to Start",
-    description: "Open Mandla Money from your phone",
-    href: "/personal#scan-to-start",
+    label: "Customer app",
+    description: "Open the Mandla customer wallet",
+    href: CUSTOMER_APP_URL,
+    external: true,
   },
   {
     icon: PiggyBank,
@@ -53,9 +56,10 @@ const personalLinks = [
 const businessLinks = [
   {
     icon: Users,
-    label: "Who it's for",
-    description: "NGOs, employers, and fintech platforms",
-    href: "/business#who-its-for",
+    label: "Business app",
+    description: "Sign in to Mandla for Business",
+    href: BUSINESS_APP_URL,
+    external: true,
   },
   {
     icon: CreditCard,
@@ -130,13 +134,10 @@ export function SiteHeader() {
                     <div className="p-4 space-y-1">
                       {personalLinks.map((item) => {
                         const Icon = item.icon;
-                        return (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="flex items-start gap-3 rounded-lg p-3 transition hover:bg-primary/5"
-                            onClick={() => setActiveDropdown(null)}
-                          >
+                        const className =
+                          "flex items-start gap-3 rounded-lg p-3 transition hover:bg-primary/5";
+                        const content = (
+                          <>
                             <Icon className="mt-0.5 h-5 w-5 text-accent" />
                             <div>
                               <p className="text-sm font-medium text-primary">
@@ -146,17 +147,51 @@ export function SiteHeader() {
                                 {item.description}
                               </p>
                             </div>
+                          </>
+                        );
+                        if ("external" in item && item.external) {
+                          return (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={className}
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {content}
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            className={className}
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {content}
                           </Link>
                         );
                       })}
                     </div>
                     <div className="flex flex-col justify-center gap-3 border-l border-primary/10 bg-primary/[0.02] p-5">
+                      <a
+                        href={CUSTOMER_APP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-primary transition hover:brightness-105"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Open customer app
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
                       <button
                         onClick={() => {
                           setActiveDropdown(null);
                           handleCTA();
                         }}
-                        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-primary transition hover:brightness-105"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-accent"
                       >
                         Start on WhatsApp
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -187,13 +222,10 @@ export function SiteHeader() {
                     <div className="p-4 space-y-1">
                       {businessLinks.map((item) => {
                         const Icon = item.icon;
-                        return (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="flex items-start gap-3 rounded-lg p-3 transition hover:bg-primary/5"
-                            onClick={() => setActiveDropdown(null)}
-                          >
+                        const className =
+                          "flex items-start gap-3 rounded-lg p-3 transition hover:bg-primary/5";
+                        const content = (
+                          <>
                             <Icon className="mt-0.5 h-5 w-5 text-accent" />
                             <div>
                               <p className="text-sm font-medium text-primary">
@@ -203,25 +235,51 @@ export function SiteHeader() {
                                 {item.description}
                               </p>
                             </div>
+                          </>
+                        );
+                        if ("external" in item && item.external) {
+                          return (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={className}
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {content}
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            className={className}
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {content}
                           </Link>
                         );
                       })}
                     </div>
                     <div className="flex flex-col justify-center gap-3 border-l border-primary/10 bg-primary/[0.02] p-5">
+                      <a
+                        href={BUSINESS_APP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-primary transition hover:brightness-105"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Open business app
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
                       <Link
                         href="/contact"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-accent"
                         onClick={() => setActiveDropdown(null)}
                       >
                         Talk to Sales
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/business#api"
-                        className="inline-flex items-center gap-2 text-sm text-primary/60 transition hover:text-primary"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        View API Docs
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
@@ -283,32 +341,58 @@ export function SiteHeader() {
               <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">
                 Personal
               </p>
-              {personalLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {personalLinks.map((item) =>
+                "external" in item && item.external ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
 
               <div className="my-3 border-t border-white/10" />
 
               <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">
                 Business
               </p>
-              {businessLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {businessLinks.map((item) =>
+                "external" in item && item.external ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
 
               <div className="my-3 border-t border-white/10" />
 

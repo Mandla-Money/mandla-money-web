@@ -9,15 +9,15 @@ const footerSections = [
     title: "Personal",
     links: [
       { href: "/personal#get-started", label: "Get Started" },
+      { href: "https://customer.mandlamoney.com", label: "Customer app", external: true },
       { href: "/personal#savings-in-usd", label: "Savings in USD" },
-      { href: "/personal#scan-to-start", label: "Scan to Start" },
       { href: "/personal#what-you-can-do", label: "What You Can Do" },
     ],
   },
   {
     title: "Business",
     links: [
-      { href: "/business#who-its-for", label: "Who it's for" },
+      { href: "https://business.mandlamoney.com", label: "Business app", external: true },
       { href: "/business#bulk-payout-flow", label: "Bulk Payouts" },
       { href: "/business#otc-markets", label: "OTC Markets" },
       { href: "/business#api", label: "API Documentation" },
@@ -39,7 +39,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-primary pb-16 text-white md:pb-0">
+    <footer className="relative bg-primary pb-16 text-white lg:pb-[17rem]">
       <div
         aria-hidden
         className="h-px w-full bg-gradient-to-r from-transparent via-accent/40 to-transparent"
@@ -161,6 +161,8 @@ export function SiteFooter() {
               <Link
                 key={document.slug}
                 href={`/legal/${document.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="transition hover:text-white/70"
               >
                 {document.label}

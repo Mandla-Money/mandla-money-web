@@ -1,0 +1,16 @@
+services:
+  company-website:
+    image: ${REGISTRY:-ghcr.io/mandla-money}/mandla-money-web:${WEBSITE_IMAGE_TAG:-prod-latest}
+    container_name: mandla-company-website
+    restart: unless-stopped
+    networks: [mandla-net]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+networks:
+  mandla-net:
+    external: true

@@ -11,5 +11,11 @@ export const designSystem = {
   roundness: "8px",
 } as const;
 
-export const WHATSAPP_NUMBER = "+27600410476";
+/** Production WhatsApp Business number (Mandla Money Main). */
+export const WHATSAPP_NUMBER = "+27609305221";
+export const WHATSAPP_NUMBER_DISPLAY = "+27 60 930 5221";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace(/\+/g, "")}`;
+
+/** Production customer & business web apps. */
+export const CUSTOMER_APP_URL = "https://customer.mandlamoney.com";
+export const BUSINESS_APP_URL = "https://business.mandlamoney.com";

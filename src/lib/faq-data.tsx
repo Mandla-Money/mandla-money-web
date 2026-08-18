@@ -26,7 +26,13 @@ export const faqItems: FaqItem[] = [
     answer: (
       <>
         <p>Simply send a message saying &quot;Hi&quot; on WhatsApp to:</p>
-        <p className="mt-2 font-medium text-accent">+27 60 041 0476</p>
+        <p className="mt-2 font-medium text-accent">+27 60 930 5221</p>
+        <p className="mt-2">Or open the customer app at{" "}
+          <a href="https://customer.mandlamoney.com" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            customer.mandlamoney.com
+          </a>
+          .
+        </p>
         <p className="mt-2">Follow the prompts to create your wallet in minutes.</p>
       </>
     ),

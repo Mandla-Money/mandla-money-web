@@ -12,7 +12,10 @@ import {
   Zap,
 } from "lucide-react";
 import { basePath } from "@/lib/base-path";
-import { WHATSAPP_URL } from "@/lib/design-system";
+import {
+  CUSTOMER_APP_URL,
+  WHATSAPP_URL,
+} from "@/lib/design-system";
 import { WhatsAppModal } from "@/components/site/whatsapp-modal";
 
 const features = [
@@ -57,6 +60,17 @@ export default function PersonalPage() {
               Start on WhatsApp
               <ArrowRight className="h-4 w-4" />
             </button>
+            <div className="mt-4">
+              <a
+                href={CUSTOMER_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:brightness-110"
+              >
+                Or open the customer app
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -80,7 +94,7 @@ export default function PersonalPage() {
               </div>
               <p className="mt-4 inline-flex items-center gap-2 text-sm text-primary/50">
                 <MessageCircle className="h-4 w-4 text-accent" />
-                Or WhatsApp +27 60 041 0476 on any phone
+                Or WhatsApp +27 60 930 5221 on any phone
               </p>
             </div>
 
@@ -199,6 +213,17 @@ export default function PersonalPage() {
             Start on WhatsApp
             <ArrowRight className="h-4 w-4" />
           </button>
+          <div className="mt-4">
+            <a
+              href={CUSTOMER_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:brightness-110"
+            >
+              Open customer app
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </div>
       </section>
 
